@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'repositories/locations_repository.dart';
@@ -11,9 +10,8 @@ import 'ui/screens/home/home_screen.dart';
 import 'ui/theme/theme.dart';
 
 void main() {
-   runApp(const BlaBlaApp()); 
+  runApp(const BlaBlaApp());
 }
-
 
 class BlaBlaApp extends StatelessWidget {
   const BlaBlaApp({super.key});
@@ -22,12 +20,8 @@ class BlaBlaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<LocationsRepository>(
-          create: (_) => MockLocationsRepository(),
-        ),
-        Provider<RidesRepository>(
-          create: (_) => MockRidesRepository(),
-        ),
+        Provider<LocationsRepository>(create: (_) => MockLocationsRepository()),
+        Provider<RidesRepository>(create: (_) => MockRidesRepository()),
         Provider<RidePreferencesRepository>(
           create: (_) => MockRidePreferencesRepository(),
         ),
