@@ -7,6 +7,7 @@ import 'repositories/mock/mock_rides_repository.dart';
 import 'repositories/ride_preferences_repository.dart';
 import 'repositories/rides_repository.dart';
 import 'ui/screens/home/home_screen.dart';
+import 'ui/states/ride_preferences_state.dart';
 import 'ui/theme/theme.dart';
 
 void main() {
@@ -24,6 +25,10 @@ class BlaBlaApp extends StatelessWidget {
         Provider<RidesRepository>(create: (_) => MockRidesRepository()),
         Provider<RidePreferencesRepository>(
           create: (_) => MockRidePreferencesRepository(),
+        ),
+        ProxyProvider<RidePreferencesRepository, RidePreferencesState>(
+          create: (_) => throw UnimplementedError(),
+          update: (_, repository, __) => RidePreferencesState(repository),
         ),
       ],
       child: MaterialApp(
