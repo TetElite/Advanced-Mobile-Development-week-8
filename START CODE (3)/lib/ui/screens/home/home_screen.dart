@@ -38,4 +38,3 @@ class _HomeScreenState extends State<HomeScreen> {
     return HomeContent(viewModel: _viewModel);
   }
 }
-

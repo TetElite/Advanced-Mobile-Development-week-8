@@ -18,13 +18,16 @@ class HomeContent extends StatelessWidget {
   final HomeViewModel viewModel;
 
   void onRidePrefSelected(
-      RidePreference selectedPreference, BuildContext context) async {
+    RidePreference selectedPreference,
+    BuildContext context,
+  ) async {
     // 1- Ask the view model to update the current preference
     viewModel.selectPreference(selectedPreference);
 
     // 2 - Navigate to the rides screen
-    await Navigator.of(context)
-        .push(AnimationUtils.createBottomToTopRoute(RidesSelectionScreen()));
+    await Navigator.of(
+      context,
+    ).push(AnimationUtils.createBottomToTopRoute(RidesSelectionScreen()));
 
     // 3 - After wait  - The view model will notify listeners on return
   }
@@ -82,7 +85,8 @@ class HomeContent extends StatelessWidget {
 
   Widget _buildHistory(BuildContext context) {
     // Reverse the history of preferences
-    List<RidePreference> history = viewModel.preferenceHistory.reversed.toList();
+    List<RidePreference> history = viewModel.preferenceHistory.reversed
+        .toList();
     return SizedBox(
       height: 200, // Set a fixed height
       child: ListView.builder(
